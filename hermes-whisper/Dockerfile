@@ -1,3 +1,15 @@
+# Use a base image with JDK to build the app
+FROM openjdk:24-jdk-slim AS builder
+
+# Set working directory
+WORKDIR /app
+
+COPY pom.xml .  
+COPY src ./src
+
+# Build the application 
+RUN mvn clean package -DskipTests
+
 # Use an official OpenJDK runtime as the base image
 FROM openjdk:24-jdk-slim
 
