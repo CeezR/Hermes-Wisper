@@ -1,8 +1,6 @@
 package dev.cesar.hermes_whisper.model;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class AppUser {
