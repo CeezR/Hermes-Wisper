@@ -12,10 +12,6 @@ public class Vision {
     @JoinColumn(name = "user_id", nullable = false)
     private AppUser user;
 
-    @ManyToOne
-    @JoinColumn(name = "conscious_entity_id", nullable = false)
-    private ConsciousEntity consciousEntity;
-
     @Column(nullable = false)
     private String dimension; // e.g., "Physical Health", "Relationships", "Career"
 
@@ -47,14 +43,6 @@ public class Vision {
 
     public AppUser getUser() { return user; }
     public void setUser(AppUser user) { this.user = user; }
-
-    public ConsciousEntity getConsciousEntity() {
-        return consciousEntity;
-    }
-
-    public void setConsciousEntity(ConsciousEntity consciousEntity) {
-        this.consciousEntity = consciousEntity;
-    }
 
     public String getDimension() { return dimension; }
     public void setDimension(String dimension) { this.dimension = dimension; }

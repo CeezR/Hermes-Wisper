@@ -1,5 +1,8 @@
 package dev.cesar.hermes_whisper.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,9 +16,12 @@ public class AppUser {
 
     @Column(nullable = false)
     private String email;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    private List<Vision> positiveVisions = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
-    private ConsciousEntity consciousEntity;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    private List<Vision> negativeVisions = new ArrayList<>();
 
     // Constructors
     public AppUser() {}
@@ -35,6 +41,9 @@ public class AppUser {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public ConsciousEntity getConsciousEntity() { return consciousEntity; }
-    public void setConsciousEntity(ConsciousEntity consciousEntity) { this.consciousEntity = consciousEntity; }
+    public List<Vision> getPositiveVisions() { return positiveVisions; }
+    public void setPositiveVisions(List<Vision> positiveVisions) { this.positiveVisions = positiveVisions; }
+
+    public List<Vision> getNegativeVisions() { return negativeVisions; }
+    public void setNegativeVisions(List<Vision> negativeVisions) { this.negativeVisions = negativeVisions; }
 }

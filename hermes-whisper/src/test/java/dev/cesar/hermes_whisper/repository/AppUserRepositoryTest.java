@@ -29,7 +29,6 @@ class AppUserRepositoryTest {
     void cleanDatabase() {
         // Clean up the database before each test
         entityManager.createQuery("DELETE FROM Vision").executeUpdate();
-        entityManager.createQuery("DELETE FROM ConsciousEntity").executeUpdate();
         entityManager.createQuery("DELETE FROM AppUser").executeUpdate();
     }
 
