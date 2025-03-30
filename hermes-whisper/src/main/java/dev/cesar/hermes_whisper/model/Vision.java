@@ -27,9 +27,6 @@ public class Vision {
         POSITIVE, NEGATIVE
     }
 
-    // Constructors
-    public Vision() {}
-
     public Vision(AppUser user, String dimension, String description, VisionType type) {
         this.user = user;
         this.dimension = dimension;
