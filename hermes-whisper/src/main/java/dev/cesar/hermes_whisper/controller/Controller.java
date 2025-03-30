@@ -30,4 +30,10 @@ public class Controller {
         AppUser savedUser = appUserRepository.save(newUser);
         return ResponseEntity.ok(savedUser);
     }
+
+    @GetMapping("/users")
+    public ResponseEntity<Iterable<AppUser>> getAllUsers() {
+        Iterable<AppUser> users = appUserRepository.findAll();
+        return ResponseEntity.ok(users);
+    }
 }
